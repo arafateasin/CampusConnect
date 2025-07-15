@@ -15,8 +15,9 @@ const nextConfig = {
       allowedOrigins: ["localhost:3000", "*.netlify.app"],
     },
   },
-  // Fix for Netlify deployment
+  // Netlify specific configuration
   poweredByHeader: false,
+  distDir: '.next',
 };
 
 module.exports = nextConfig;
