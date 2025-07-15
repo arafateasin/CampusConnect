@@ -1,9 +1,19 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import {
+  User,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
+} from "firebase/auth";
+import { auth, googleProvider } from "@/lib/firebase";
 
 interface AuthContextType {
-  user: any | null;
+  user: User | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, name: string) => Promise<void>;
@@ -22,71 +32,89 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<any | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const login = async (email: string, password: string) => {
+    if (!auth) {
+      throw new Error("Firebase not initialized");
+    }
+
     setLoading(true);
-
-    // Simulate authentication delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Create demo user
-    const demoUser = {
-      uid: "demo-user-" + Date.now(),
-      email: email,
-      displayName: email.split("@")[0],
-      photoURL: null,
-    };
-
-    setUser(demoUser);
-    setLoading(false);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const register = async (email: string, password: string, name: string) => {
+    if (!auth) {
+      throw new Error("Firebase not initialized");
+    }
+
     setLoading(true);
-
-    // Simulate authentication delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Create demo user
-    const demoUser = {
-      uid: "demo-user-" + Date.now(),
-      email: email,
-      displayName: name,
-      photoURL: null,
-    };
-
-    setUser(demoUser);
-    setLoading(false);
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // Update user profile with display name
+      await updateProfile(result.user, {
+        displayName: name,
+      });
+    } catch (error) {
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const loginWithGoogle = async () => {
+    if (!auth || !googleProvider) {
+      throw new Error("Firebase not initialized");
+    }
+
     setLoading(true);
-
-    // Simulate authentication delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Create demo Google user
-    const demoUser = {
-      uid: "demo-google-user-" + Date.now(),
-      email: "demo@gmail.com",
-      displayName: "Demo User",
-      photoURL: "https://via.placeholder.com/40",
-    };
-
-    setUser(demoUser);
-    setLoading(false);
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const logout = async () => {
+    if (!auth) {
+      throw new Error("Firebase not initialized");
+    }
+
     setLoading(true);
-
-    // Simulate logout delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    setUser(null);
-    setLoading(false);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      throw error;
+    } finally {
+      setLoading(false);
+    }
   };
 
   const value = {

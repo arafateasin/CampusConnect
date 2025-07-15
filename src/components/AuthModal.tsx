@@ -68,8 +68,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6 relative z-10">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">
             {isLogin ? "Welcome Back" : "Create Account"}
@@ -116,7 +116,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required={!isLogin}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
                 placeholder="Enter your full name"
               />
             </div>
@@ -135,7 +135,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
               placeholder="Enter your email"
             />
           </div>
@@ -153,7 +153,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
               placeholder="Enter your password"
               minLength={6}
             />

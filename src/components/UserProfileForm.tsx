@@ -37,7 +37,7 @@ export function UserProfileForm({ isOpen, onClose }: UserProfileFormProps) {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/users?userId=${user.id}`);
+      const response = await fetch(`/api/users?userId=${user.uid}`);
       const data = await response.json();
 
       if (data.success) {
@@ -45,7 +45,7 @@ export function UserProfileForm({ isOpen, onClose }: UserProfileFormProps) {
       } else {
         // Profile doesn't exist, pre-fill with user data
         setProfile({
-          name: user.name || "",
+          name: user.displayName || "",
           email: user.email || "",
           college: "",
           year: "",
@@ -74,8 +74,8 @@ export function UserProfileForm({ isOpen, onClose }: UserProfileFormProps) {
     try {
       const method = profile.id ? "PUT" : "POST";
       const body = profile.id
-        ? { userId: user.id, ...profile }
-        : { ...profile, email: user.email };
+        ? { userId: user.uid, ...profile }
+        : { _id: user.uid, ...profile, email: user.email };
 
       const response = await fetch("/api/users", {
         method,

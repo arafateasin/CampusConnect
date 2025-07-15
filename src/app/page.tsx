@@ -100,7 +100,7 @@ export default function Home() {
     if (!user) return;
 
     try {
-      const response = await fetch(`/api/favorites?userId=${user.id}`);
+      const response = await fetch(`/api/favorites?userId=${user.uid}`);
       const data = await response.json();
 
       if (data.success) {
@@ -115,7 +115,7 @@ export default function Home() {
     if (!user) return;
 
     try {
-      const response = await fetch(`/api/registrations?userId=${user.id}`);
+      const response = await fetch(`/api/registrations?userId=${user.uid}`);
       const data = await response.json();
 
       if (data.success) {
@@ -136,7 +136,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: user.id,
+          userId: user.uid,
           eventId,
         }),
       });
@@ -166,7 +166,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: user.id,
+          userId: user.uid,
           eventId,
         }),
       });

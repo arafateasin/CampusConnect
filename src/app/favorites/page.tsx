@@ -25,7 +25,9 @@ export default function FavoritesPage() {
       setLoading(true);
 
       // Get user's favorite event IDs
-      const favoritesResponse = await fetch(`/api/favorites?userId=${user.id}`);
+      const favoritesResponse = await fetch(
+        `/api/favorites?userId=${user.uid}`
+      );
       const favoritesData = await favoritesResponse.json();
 
       if (favoritesData.success) {
@@ -59,7 +61,7 @@ export default function FavoritesPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: user.id,
+          userId: user.uid,
           eventId,
         }),
       });

@@ -23,7 +23,7 @@ export function Notifications({ isOpen, onClose }: NotificationsProps) {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/notifications?userId=${user.id}`);
+      const response = await fetch(`/api/notifications?userId=${user.uid}`);
       const data = await response.json();
 
       if (data.success) {
@@ -71,7 +71,7 @@ export function Notifications({ isOpen, onClose }: NotificationsProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: user.id,
+          userId: user.uid,
         }),
       });
 

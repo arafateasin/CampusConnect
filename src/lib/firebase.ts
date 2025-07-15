@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp, FirebaseApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, Auth } from "firebase/auth";
+import { getFirestore, Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "",
@@ -16,9 +16,10 @@ const isConfigValid = Object.values(firebaseConfig).every(
   (value) => value !== ""
 );
 
-let app;
-let auth;
-let db;
+let app: FirebaseApp | undefined;
+let auth: Auth | undefined;
+let db: Firestore | undefined;
+let googleProvider: GoogleAuthProvider | undefined;
 
 if (isConfigValid) {
   // Initialize Firebase
@@ -29,11 +30,17 @@ if (isConfigValid) {
 
   // Initialize Cloud Firestore and get a reference to the service
   db = getFirestore(app);
+
+  // Initialize Google Auth Provider
+  googleProvider = new GoogleAuthProvider();
+  googleProvider.setCustomParameters({
+    prompt: "select_account",
+  });
 } else {
-  console.warn(
+  console.error(
     "Firebase configuration is incomplete. Please add your Firebase config to environment variables."
   );
 }
 
-export { auth, db };
+export { auth, db, googleProvider };
 export default app;
