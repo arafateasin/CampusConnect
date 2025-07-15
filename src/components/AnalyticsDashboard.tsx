@@ -4,6 +4,7 @@ import { EventStats } from "@/types/event";
 export function AnalyticsDashboard() {
   const [stats, setStats] = useState<EventStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchStats();
@@ -11,18 +12,30 @@ export function AnalyticsDashboard() {
 
   const fetchStats = async () => {
     try {
+      console.log("🔍 Fetching stats from /api/stats");
       const response = await fetch("/api/stats");
-      const data = await response.json();
       
-      console.log("Analytics API Response:", data);
+      console.log("📡 Response status:", response.status);
+      console.log("📡 Response headers:", response.headers);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log("📊 Analytics API Response:", data);
 
       if (data.success && data.data) {
+        console.log("✅ Setting stats:", data.data);
         setStats(data.data);
+        setError(null);
       } else {
-        console.error("API returned unsuccessfully:", data);
+        console.error("❌ API returned unsuccessfully:", data);
+        setError(`API Error: ${data.error || "Unknown error"}`);
       }
     } catch (error) {
-      console.error("Error fetching stats:", error);
+      console.error("💥 Error fetching stats:", error);
+      setError(error instanceof Error ? error.message : "Unknown error");
     } finally {
       setLoading(false);
     }
@@ -38,13 +51,34 @@ export function AnalyticsDashboard() {
     );
   }
 
-  if (!stats) {
+  if (error) {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-        <h3 className="text-red-800 font-medium">No Statistics Available</h3>
-        <p className="text-red-600 text-sm mt-2">
+        <h3 className="text-red-800 font-medium">Error Loading Analytics</h3>
+        <p className="text-red-600 text-sm mt-2">{error}</p>
+        <button
+          onClick={fetchStats}
+          className="mt-3 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 text-sm"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (!stats) {
+    return (
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <h3 className="text-yellow-800 font-medium">No Statistics Available</h3>
+        <p className="text-yellow-600 text-sm mt-2">
           Unable to load analytics data. Please check the console for errors.
         </p>
+        <button
+          onClick={fetchStats}
+          className="mt-3 px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-yellow-700 text-sm"
+        >
+          Retry
+        </button>
       </div>
     );
   }
