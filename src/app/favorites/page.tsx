@@ -101,7 +101,9 @@ export default function FavoritesPage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             My Favorite Events
           </h1>
-          <p className="text-gray-600">Events you&apos;ve saved on CampusConnect</p>
+          <p className="text-gray-600">
+            Events you&apos;ve saved on CampusConnect
+          </p>
         </div>
 
         {loading ? (

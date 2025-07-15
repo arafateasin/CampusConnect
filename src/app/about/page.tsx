@@ -200,8 +200,8 @@ export default function About() {
             For Event Organizers
           </h2>
           <p className="text-gray-700 mb-4">
-            Are you organizing a tech event at your college? We&apos;d love to help
-            you reach more students!
+            Are you organizing a tech event at your college? We&apos;d love to
+            help you reach more students!
           </p>
           <div className="bg-blue-50 p-4 rounded-lg">
             <h3 className="font-semibold text-blue-900 mb-2">

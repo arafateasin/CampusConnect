@@ -2,8 +2,26 @@ import { NextRequest, NextResponse } from "next/server";
 import { HybridEventService } from "@/lib/hybridEventService";
 import { EventFilters, EventType } from "@/types/event";
 
+// Add edge runtime for better Netlify compatibility
+export const runtime = "nodejs";
+
 export async function GET(request: NextRequest) {
+  // Add CORS headers for Netlify
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+
   try {
+    console.log("🔄 Starting event fetch...");
+
+    // Add more detailed error logging
+    console.log("Environment check:", {
+      mongoUri: process.env.MONGODB_URI ? "✅ Set" : "❌ Missing",
+      nodeEnv: process.env.NODE_ENV,
+    });
+
     await HybridEventService.initialize();
 
     const { searchParams } = new URL(request.url);
@@ -19,19 +37,24 @@ export async function GET(request: NextRequest) {
 
     const events = await HybridEventService.filterEvents(filters);
 
-    return NextResponse.json({
-      success: true,
-      data: events,
-      database: HybridEventService.getConnectionStatus(),
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        data: events,
+        database: HybridEventService.getConnectionStatus(),
+      },
+      { headers }
+    );
   } catch (error) {
-    console.error("Error fetching events:", error);
+    console.error("❌ Error fetching events:", error);
     return NextResponse.json(
       {
         success: false,
         error: "Failed to fetch events",
+        details: error instanceof Error ? error.message : "Unknown error",
+        database: "disconnected",
       },
-      { status: 500 }
+      { status: 500, headers }
     );
   }
 }
