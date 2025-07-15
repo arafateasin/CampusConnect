@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Event } from "@/types/event";
 import { EventCard } from "@/components/EventCard";
 import { LoadingSpinner } from "@/components/LoadingStates";
+import Link from "next/link";
 
 export default function FavoritesPage() {
   const { user } = useAuth();
@@ -100,7 +101,7 @@ export default function FavoritesPage() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             My Favorite Events
           </h1>
-          <p className="text-gray-600">Events you've saved on CampusConnect</p>
+          <p className="text-gray-600">Events you&apos;ve saved on CampusConnect</p>
         </div>
 
         {loading ? (
@@ -129,12 +130,12 @@ export default function FavoritesPage() {
               Start exploring events and mark your favorites by clicking the
               heart icon.
             </p>
-            <a
+            <Link
               href="/"
               className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
               Browse Events
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { HybridEventService } from "@/lib/hybridEventService";
-import { EventFilters } from "@/types/event";
+import { EventFilters, EventType } from "@/types/event";
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
     const filters: EventFilters = {
       search: searchParams.get("search") || undefined,
-      eventType: (searchParams.get("eventType") as any) || undefined,
+      eventType: (searchParams.get("eventType") as EventType) || undefined,
       college: searchParams.get("college") || undefined,
       location: searchParams.get("location") || undefined,
       dateFrom: searchParams.get("dateFrom") || undefined,

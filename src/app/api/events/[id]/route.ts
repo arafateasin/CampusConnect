@@ -3,12 +3,13 @@ import { HybridEventService } from "@/lib/hybridEventService";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     await HybridEventService.initialize();
 
-    const event = await HybridEventService.getEventById(params.id);
+    const event = await HybridEventService.getEventById(id);
 
     if (!event) {
       return NextResponse.json(

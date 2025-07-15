@@ -89,7 +89,7 @@ export default function MyEvents() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Events</h1>
-          <p className="mt-2 text-gray-600">Manage the events you've created</p>
+          <p className="mt-2 text-gray-600">Manage the events you&apos;ve created</p>
         </div>
 
         {events.length === 0 ? (
@@ -111,7 +111,7 @@ export default function MyEvents() {
               No events
             </h3>
             <p className="mt-1 text-sm text-gray-500">
-              You haven't created any events yet.
+              You haven&apos;t created any events yet.
             </p>
             <div className="mt-6">
               <button

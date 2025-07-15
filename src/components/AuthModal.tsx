@@ -31,8 +31,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       }
       onClose();
       resetForm();
-    } catch (error: any) {
-      setError(error.message || "An error occurred");
+    } catch (error: unknown) {
+      setError((error as Error).message || "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -46,8 +46,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       await loginWithGoogle();
       onClose();
       resetForm();
-    } catch (error: any) {
-      setError(error.message || "An error occurred");
+    } catch (error: unknown) {
+      setError((error as Error).message || "An error occurred");
     } finally {
       setLoading(false);
     }

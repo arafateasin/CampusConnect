@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
 
     await connectToDatabase();
 
-    const query: any = { userId };
+    const query: Record<string, unknown> = { userId };
     if (unreadOnly) {
       query.read = false;
     }
