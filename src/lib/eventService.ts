@@ -53,7 +53,7 @@ const FALLBACK_EVENTS: Event[] = [
 export class EventService {
   private static readEventsFromFile(): Event[] {
     try {
-      // Check if we're in a serverless environment (Netlify/Vercel)
+      // Check if we're in a serverless environment (Netlify)
       if (typeof window !== "undefined" || !fs.existsSync) {
         console.log("🔄 Using fallback events (serverless environment)");
         return FALLBACK_EVENTS;

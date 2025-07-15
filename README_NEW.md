@@ -53,12 +53,12 @@ CampusConnect is a comprehensive platform for discovering and managing college e
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/campusconnect
 
    # Firebase Configuration
-   NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key_here
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com
+   NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
-   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project-id.firebasestorage.app
-   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
-   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id_here
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
    ```
 
 4. **Run the development server**
@@ -152,7 +152,6 @@ For questions, suggestions, or support:
 - **Email**: easinarafat.bn@gmail.com
 - **Telegram**: @easinarafat010
 - **Twitter**: https://x.com/easinarafat_ss
-- **Phone**: +601112794136
 
 ## 🌟 Acknowledgments
 
