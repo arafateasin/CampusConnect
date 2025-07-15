@@ -1,0 +1,196 @@
+[
+  {
+    "id": "1",
+    "title": "MIT AI & Machine Learning Hackathon 2025",
+    "description": "Join us for a 48-hour hackathon focused on building AI-powered solutions for real-world problems. Teams will work on projects involving natural language processing, computer vision, and predictive analytics. Prizes include $10,000 cash, internship opportunities, and mentorship from industry leaders.",
+    "date": "2025-08-15T09:00:00Z",
+    "location": "MIT Campus, Cambridge, MA",
+    "college": "Massachusetts Institute of Technology",
+    "eventType": "hackathon",
+    "link": "https://www.hackerearth.com/challenges/hackathon/",
+    "tags": [
+      "AI",
+      "Machine Learning",
+      "Innovation",
+      "Technology",
+      "Python",
+      "TensorFlow"
+    ],
+    "createdAt": "2025-07-15T10:00:00Z",
+    "updatedAt": "2025-07-15T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Modern Web Development with React & Next.js",
+    "description": "Master modern web development with React and Next.js in this comprehensive workshop. Learn component architecture, state management with Redux, server-side rendering, and deployment strategies. Includes hands-on projects and code review sessions.",
+    "date": "2025-08-20T14:00:00Z",
+    "location": "Stanford University, Palo Alto, CA",
+    "college": "Stanford University",
+    "eventType": "workshop",
+    "link": "https://www.eventbrite.com/e/react-nextjs-workshop-tickets",
+    "tags": [
+      "React",
+      "Next.js",
+      "Web Development",
+      "JavaScript",
+      "TypeScript",
+      "Frontend"
+    ],
+    "createdAt": "2025-07-15T11:00:00Z",
+    "updatedAt": "2025-07-15T11:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "The Future of Blockchain & Decentralized Finance",
+    "description": "Industry experts from major blockchain companies will discuss the future of blockchain technology, DeFi protocols, and Web3 applications. Learn about career opportunities in the blockchain space and network with professionals from leading crypto companies.",
+    "date": "2025-08-25T18:00:00Z",
+    "location": "Harvard University, Cambridge, MA",
+    "college": "Harvard University",
+    "eventType": "tech-talk",
+    "link": "https://www.meetup.com/blockchain-developers/",
+    "tags": [
+      "Blockchain",
+      "DeFi",
+      "Web3",
+      "Cryptocurrency",
+      "Smart Contracts",
+      "Ethereum"
+    ],
+    "createdAt": "2025-07-15T12:00:00Z",
+    "updatedAt": "2025-07-15T12:00:00Z"
+  },
+  {
+    "id": "4",
+    "title": "Cybersecurity Bootcamp: Ethical Hacking & Penetration Testing",
+    "description": "Intensive cybersecurity training covering ethical hacking, penetration testing, vulnerability assessment, and security best practices. Learn to use tools like Kali Linux, Metasploit, and Nmap. Perfect for students interested in cybersecurity careers.",
+    "date": "2025-09-05T10:00:00Z",
+    "location": "Carnegie Mellon University, Pittsburgh, PA",
+    "college": "Carnegie Mellon University",
+    "eventType": "workshop",
+    "link": "https://www.sans.org/cyber-security-courses/",
+    "tags": [
+      "Cybersecurity",
+      "Ethical Hacking",
+      "Penetration Testing",
+      "Security",
+      "Kali Linux",
+      "CISSP"
+    ],
+    "createdAt": "2025-07-15T13:00:00Z",
+    "updatedAt": "2025-07-15T13:00:00Z"
+  },
+  {
+    "id": "5",
+    "title": "Berkeley Startup Pitch Competition 2025",
+    "description": "Compete with fellow entrepreneurs to pitch your startup ideas to top VCs and angel investors. Winners receive up to $50,000 in funding, 6 months of mentorship, and access to Berkeley's startup accelerator program. Open to all students and recent graduates.",
+    "date": "2025-09-10T16:00:00Z",
+    "location": "UC Berkeley, Berkeley, CA",
+    "college": "UC Berkeley",
+    "eventType": "hackathon",
+    "link": "https://www.f6s.com/competitions/startup-pitch-competition",
+    "tags": [
+      "Startup",
+      "Entrepreneurship",
+      "Pitch Competition",
+      "Venture Capital",
+      "Business",
+      "Innovation"
+    ],
+    "createdAt": "2025-07-15T14:00:00Z",
+    "updatedAt": "2025-07-15T14:00:00Z"
+  },
+  {
+    "id": "6",
+    "title": "Data Science & Analytics Summit 2025",
+    "description": "Join data scientists from Google, Netflix, and Uber as they share insights on big data, machine learning pipelines, and real-world data science applications. Includes workshops on Python, R, SQL, and data visualization tools like Tableau and Power BI.",
+    "date": "2025-09-15T09:00:00Z",
+    "location": "Georgia Institute of Technology, Atlanta, GA",
+    "college": "Georgia Institute of Technology",
+    "eventType": "tech-talk",
+    "link": "https://www.kdnuggets.com/meetings/",
+    "tags": [
+      "Data Science",
+      "Machine Learning",
+      "Python",
+      "R",
+      "SQL",
+      "Analytics",
+      "Big Data"
+    ],
+    "createdAt": "2025-07-15T15:00:00Z",
+    "updatedAt": "2025-07-15T15:00:00Z"
+  },
+  {
+    "id": "7",
+    "title": "Google Cloud Platform Developer Workshop",
+    "description": "Learn to build scalable applications on Google Cloud Platform. Covers compute services, storage solutions, databases, and AI/ML services. Hands-on labs with real GCP projects and certification preparation. Google engineers will be present for Q&A sessions.",
+    "date": "2025-09-20T10:00:00Z",
+    "location": "University of Washington, Seattle, WA",
+    "college": "University of Washington",
+    "eventType": "workshop",
+    "link": "https://cloud.google.com/events/",
+    "tags": [
+      "Google Cloud",
+      "Cloud Computing",
+      "DevOps",
+      "Kubernetes",
+      "Docker",
+      "Microservices"
+    ],
+    "createdAt": "2025-07-15T16:00:00Z",
+    "updatedAt": "2025-07-15T16:00:00Z"
+  },
+  {
+    "id": "8",
+    "title": "Microsoft Build Student Conference",
+    "description": "Exclusive student conference featuring the latest Microsoft technologies including Azure, .NET, Power Platform, and GitHub. Network with Microsoft engineers, attend technical sessions, and participate in coding challenges with prizes.",
+    "date": "2025-09-25T09:00:00Z",
+    "location": "University of Texas at Austin, Austin, TX",
+    "college": "University of Texas at Austin",
+    "eventType": "tech-talk",
+    "link": "https://mybuild.microsoft.com/",
+    "tags": ["Microsoft", "Azure", ".NET", "Power Platform", "GitHub", "Cloud"],
+    "createdAt": "2025-07-15T17:00:00Z",
+    "updatedAt": "2025-07-15T17:00:00Z"
+  },
+  {
+    "id": "9",
+    "title": "Mobile App Development with Flutter & React Native",
+    "description": "Comprehensive workshop on cross-platform mobile development using Flutter and React Native. Build real mobile apps, learn state management, API integration, and app store deployment. Includes project-based learning and code reviews.",
+    "date": "2025-10-01T14:00:00Z",
+    "location": "University of California San Diego, San Diego, CA",
+    "college": "UC San Diego",
+    "eventType": "workshop",
+    "link": "https://www.udemy.com/topic/flutter/",
+    "tags": [
+      "Flutter",
+      "React Native",
+      "Mobile Development",
+      "Dart",
+      "iOS",
+      "Android"
+    ],
+    "createdAt": "2025-07-15T18:00:00Z",
+    "updatedAt": "2025-07-15T18:00:00Z"
+  },
+  {
+    "id": "10",
+    "title": "NASA Space Apps Challenge 2025",
+    "description": "Join the world's largest global hackathon focused on space exploration and Earth science. Work on challenges provided by NASA, ESA, and other space agencies. Teams will develop solutions for space exploration, climate change, and disaster response using space data.",
+    "date": "2025-10-05T18:00:00Z",
+    "location": "California Institute of Technology, Pasadena, CA",
+    "college": "California Institute of Technology",
+    "eventType": "hackathon",
+    "link": "https://www.spaceappschallenge.org/",
+    "tags": [
+      "NASA",
+      "Space",
+      "Earth Science",
+      "Hackathon",
+      "Climate Change",
+      "Satellites"
+    ],
+    "createdAt": "2025-07-15T19:00:00Z",
+    "updatedAt": "2025-07-15T19:00:00Z"
+  }
+]
