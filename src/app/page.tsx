@@ -48,7 +48,7 @@ export default function Home() {
     try {
       setLoading(true);
       setError(null);
-      
+
       const params = new URLSearchParams();
       Object.entries(filters).forEach(([key, value]) => {
         if (value) {
@@ -58,11 +58,11 @@ export default function Home() {
 
       // Try to fetch from API first
       const response = await fetch(`/api/events?${params}`);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-      
+
       const data = await response.json();
 
       if (data.success && data.data && Array.isArray(data.data)) {
@@ -73,13 +73,14 @@ export default function Home() {
       }
     } catch (err) {
       console.error("❌ API fetch failed, using fallback events:", err);
-      
+
       // Use immediate fallback events
       const fallbackEvents: Event[] = [
         {
           id: "1",
           title: "Tech Innovation Summit 2025",
-          description: "Join us for the biggest tech summit of the year featuring industry leaders and cutting-edge technology demonstrations.",
+          description:
+            "Join us for the biggest tech summit of the year featuring industry leaders and cutting-edge technology demonstrations.",
           date: "2025-07-20T10:00:00Z",
           location: "Convention Center, New York",
           college: "NYU",
@@ -87,12 +88,13 @@ export default function Home() {
           link: "https://example.com/tech-summit",
           tags: ["technology", "innovation", "networking"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
-          id: "2", 
+          id: "2",
           title: "AI/ML Workshop Series",
-          description: "Hands-on workshop covering machine learning fundamentals and practical AI applications.",
+          description:
+            "Hands-on workshop covering machine learning fundamentals and practical AI applications.",
           date: "2025-07-25T14:00:00Z",
           location: "Computer Science Building, MIT",
           college: "MIT",
@@ -100,12 +102,13 @@ export default function Home() {
           link: "https://example.com/ai-workshop",
           tags: ["AI", "machine learning", "workshop"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
           id: "3",
           title: "CodeCrush Hackathon",
-          description: "48-hour hackathon focused on building solutions for social good. Great prizes and networking opportunities!",
+          description:
+            "48-hour hackathon focused on building solutions for social good. Great prizes and networking opportunities!",
           date: "2025-07-30T09:00:00Z",
           location: "Stanford University",
           college: "Stanford",
@@ -113,12 +116,13 @@ export default function Home() {
           link: "https://example.com/hackathon",
           tags: ["hackathon", "coding", "social impact"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
           id: "4",
           title: "Blockchain & Web3 Workshop",
-          description: "Learn about blockchain technology, smart contracts, and decentralized applications. Hands-on coding session included.",
+          description:
+            "Learn about blockchain technology, smart contracts, and decentralized applications. Hands-on coding session included.",
           date: "2025-08-05T16:00:00Z",
           location: "Engineering Building, UC Berkeley",
           college: "UC Berkeley",
@@ -126,12 +130,13 @@ export default function Home() {
           link: "https://example.com/blockchain-workshop",
           tags: ["blockchain", "web3", "cryptocurrency", "smart contracts"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
           id: "5",
           title: "Cybersecurity Summit",
-          description: "Industry experts discuss latest cybersecurity threats, defense strategies, and career opportunities in cybersecurity.",
+          description:
+            "Industry experts discuss latest cybersecurity threats, defense strategies, and career opportunities in cybersecurity.",
           date: "2025-08-10T13:00:00Z",
           location: "Auditorium, Carnegie Mellon University",
           college: "Carnegie Mellon",
@@ -139,12 +144,13 @@ export default function Home() {
           link: "https://example.com/cybersecurity-summit",
           tags: ["cybersecurity", "networking", "career"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
           id: "6",
           title: "Data Science & Analytics Bootcamp",
-          description: "Intensive 3-day bootcamp covering Python, R, data visualization, and machine learning fundamentals for beginners.",
+          description:
+            "Intensive 3-day bootcamp covering Python, R, data visualization, and machine learning fundamentals for beginners.",
           date: "2025-08-15T09:00:00Z",
           location: "Data Science Center, Harvard University",
           college: "Harvard",
@@ -152,12 +158,13 @@ export default function Home() {
           link: "https://example.com/data-science-bootcamp",
           tags: ["data science", "python", "analytics", "bootcamp"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
+          updatedAt: "2025-07-15T00:00:00Z",
         },
         {
           id: "7",
           title: "FinTech Innovation Challenge",
-          description: "24-hour hackathon focused on creating innovative financial technology solutions. Sponsored by major banks and fintech companies.",
+          description:
+            "24-hour hackathon focused on creating innovative financial technology solutions. Sponsored by major banks and fintech companies.",
           date: "2025-08-20T18:00:00Z",
           location: "Business School, University of Pennsylvania",
           college: "UPenn",
@@ -165,10 +172,10 @@ export default function Home() {
           link: "https://example.com/fintech-challenge",
           tags: ["fintech", "hackathon", "finance", "innovation"],
           createdAt: "2025-07-15T00:00:00Z",
-          updatedAt: "2025-07-15T00:00:00Z"
-        }
+          updatedAt: "2025-07-15T00:00:00Z",
+        },
       ];
-      
+
       setEvents(fallbackEvents);
       setError(null); // Clear error since we have fallback data
       console.log("✅ Using fallback events");
