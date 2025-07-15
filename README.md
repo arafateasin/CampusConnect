@@ -1,6 +1,6 @@
 # CampusConnect - College Event Aggregator Platform
 
-CampusConnect is a comprehensive Web2 platform for aggregating college events including hackathons, tech talks, and workshops from multiple college websites. Built with Next.js, TypeScript, and Tailwind CSS.
+CampusConnect is a comprehensive platform for discovering and managing college events including hackathons, tech talks, and workshops from universities nationwide. Built with Next.js, TypeScript, and modern web technologies.
 
 ## 🚀 Features
 
@@ -14,9 +14,7 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 - **Analytics Dashboard**: Track registrations and engagement metrics
 - **PWA Support**: Progressive Web App for mobile installation
 - **Responsive Design**: Optimized for desktop and mobile devices
-- **Event Details**: Comprehensive event information with registration links
 - **Search Functionality**: Find events by title, description, tags, or college
-- **Statistics Dashboard**: View event counts and statistics
 
 ## 🛠️ Technology Stack
 
@@ -25,15 +23,14 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 - **Backend**: Next.js API routes with TypeScript
 - **Database**: MongoDB Atlas with Mongoose ODM
 - **Authentication**: Firebase Authentication
-- **Development**: ESLint, PostCSS, and modern development tools
 
 ## 📦 Installation
 
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
-   cd campusconnect
+   git clone https://github.com/arafateasin/CampusConnect.git
+   cd CampusConnect
    ```
 
 2. **Install dependencies**
@@ -50,8 +47,6 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
    ```
 
    Edit `.env.local` and add your configuration:
-   - **MongoDB URI**: Your MongoDB Atlas connection string
-   - **Firebase Configuration**: Your Firebase project credentials
 
    ```env
    # MongoDB Configuration
@@ -75,35 +70,26 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## � Deployment
+## 🚀 Deployment
 
 ### Deploy to Vercel
 
-1. **Fork or clone this repository**
-2. **Import to Vercel**
+1. **Import to Vercel**
+
    - Go to [Vercel Dashboard](https://vercel.com/dashboard)
    - Click "New Project"
    - Import from GitHub: `https://github.com/arafateasin/CampusConnect.git`
 
-3. **Configure Environment Variables**
-   Add these in Vercel's environment variables section:
-   ```
-   MONGODB_URI=your-mongodb-connection-string
-   NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
-   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
-   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
-   NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
-   ```
+2. **Configure Environment Variables**
+   Add your MongoDB and Firebase credentials in Vercel's environment variables section
 
-4. **Deploy**
+3. **Deploy**
    - Click "Deploy"
    - Your app will be live at `https://your-project.vercel.app`
 
 📋 **See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for detailed deployment instructions**
 
-## �🚦 Getting Started
+## 🚦 Getting Started
 
 ### For Users
 
@@ -119,61 +105,13 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 3. Submit the form to add your event to the platform
 4. Your event will appear on the dashboard immediately
 
-## 📁 Project Structure
-
-```
-├── src/
-│   ├── app/                    # Next.js app router pages
-│   │   ├── api/               # API routes
-│   │   │   ├── events/        # Event CRUD operations
-│   │   │   ├── colleges/      # College data
-│   │   │   └── stats/         # Statistics endpoint
-│   │   ├── events/[id]/       # Individual event pages
-│   │   ├── submit/            # Event submission page
-│   │   ├── about/             # About page
-│   │   └── page.tsx           # Dashboard homepage
-│   ├── components/            # Reusable UI components
-│   │   ├── EventCard.tsx      # Event display component
-│   │   ├── EventFilters.tsx   # Filtering component
-│   │   ├── EventForm.tsx      # Event submission form
-│   │   ├── Navbar.tsx         # Navigation component
-│   │   └── ...
-│   ├── lib/                   # Utility functions
-│   │   ├── eventService.ts    # Event data operations
-│   │   └── utils.ts           # Helper functions
-│   └── types/                 # TypeScript type definitions
-│       └── event.ts           # Event-related types
-├── data/
-│   └── events.json            # Event data storage
-├── public/                    # Static assets
-└── ...
-```
-
-## 🔧 API Endpoints
-
-### Events
-
-- `GET /api/events` - Get all events with optional filtering
-- `POST /api/events` - Create a new event
-- `GET /api/events/[id]` - Get a specific event
-- `PUT /api/events/[id]` - Update an event
-- `DELETE /api/events/[id]` - Delete an event
-
-### Colleges
-
-- `GET /api/colleges` - Get list of all colleges
-
-### Statistics
-
-- `GET /api/stats` - Get event statistics and counts
-
 ## 🎨 Event Types
 
 The platform supports three main event types:
 
-1. **Hackathons** - Competitive coding events where teams build solutions
-2. **Tech Talks** - Presentations by industry experts on latest technologies
-3. **Workshops** - Hands-on learning sessions for skill development
+- **Hackathons** - Competitive coding events where teams build solutions
+- **Tech Talks** - Presentations by industry experts on latest technologies
+- **Workshops** - Hands-on learning sessions for skill development
 
 ## 🔍 Filtering Options
 
@@ -185,46 +123,7 @@ The platform supports three main event types:
 
 ## 📊 Sample Data
 
-The platform comes with sample events from major universities including:
-
-- MIT (AI & Machine Learning Hackathon)
-- Stanford (Web Development Workshop)
-- Harvard (Blockchain Technology Tech Talk)
-- Carnegie Mellon (Cybersecurity Bootcamp)
-- UC Berkeley (Startup Pitch Competition)
-- Georgia Tech (Data Science Summit)
-
-## 🚀 Development
-
-### Running the Development Server
-
-```bash
-npm run dev
-```
-
-### Building for Production
-
-```bash
-npm run build
-npm start
-```
-
-### Linting
-
-```bash
-npm run lint
-```
-
-## 🔮 Future Enhancements
-
-- **Database Integration**: Upgrade from JSON to PostgreSQL/MongoDB
-- **User Authentication**: Add user accounts and event management
-- **Event Scraping**: Automated collection from college websites
-- **Email Notifications**: Subscribe to event updates
-- **Calendar Integration**: Export events to calendar applications
-- **Social Features**: Comments, ratings, and event discussions
-- **Mobile App**: React Native companion app
-- **Analytics Dashboard**: Detailed event analytics for organizers
+The platform comes with sample events from major universities including MIT, Stanford, Harvard, Carnegie Mellon, UC Berkeley, and Georgia Tech.
 
 ## 🤝 Contributing
 
@@ -238,23 +137,17 @@ We welcome contributions! Here's how to get started:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## 👥 Contact Information
 
 For questions, suggestions, or support:
 
-- **Telegram**: [@your_telegram_id]
-- **Twitter**: [@your_twitter_id]
-- **Email**: your.email@example.com
-- **Phone**: +1-XXX-XXX-XXXX
+- **Email**: easinarafat.bn@gmail.com
+- **Telegram**: @easinarafat010
+- **Twitter**: https://x.com/easinarafat_ss
+- **Phone**: +601112794136
 
 ## 🌟 Acknowledgments
 
-- Built for the college community to connect students with tech opportunities
-- Inspired by the need for centralized event discovery
-- Thanks to all contributors and event organizers
-
----
-
-**Note**: This is a Web2 platform focusing on traditional web technologies. No blockchain or cryptocurrency features are included as per the project requirements.
+Built for the college community to connect students with tech opportunities and centralize event discovery across universities.
