@@ -48,6 +48,8 @@ export default function Home() {
     try {
       setLoading(true);
       setError(null);
+      
+      console.log("🔄 Starting event fetch...");
 
       const params = new URLSearchParams();
       Object.entries(filters).forEach(([key, value]) => {
@@ -58,16 +60,21 @@ export default function Home() {
 
       // Try to fetch from API first
       const response = await fetch(`/api/events?${params}`);
+      
+      console.log("📡 API Response Status:", response.status);
+      console.log("📡 API Response OK:", response.ok);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
       const data = await response.json();
+      console.log("📦 API Response Data:", data);
 
       if (data.success && data.data && Array.isArray(data.data)) {
         setEvents(data.data);
         console.log("✅ Successfully fetched events from API");
+        console.log("🗄️ Database used:", data.database || "Unknown");
       } else {
         throw new Error(data.error || "Invalid API response");
       }
