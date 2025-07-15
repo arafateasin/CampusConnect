@@ -114,6 +114,58 @@ export default function Home() {
           tags: ["hackathon", "coding", "social impact"],
           createdAt: "2025-07-15T00:00:00Z",
           updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "4",
+          title: "Blockchain & Web3 Workshop",
+          description: "Learn about blockchain technology, smart contracts, and decentralized applications. Hands-on coding session included.",
+          date: "2025-08-05T16:00:00Z",
+          location: "Engineering Building, UC Berkeley",
+          college: "UC Berkeley",
+          eventType: "workshop" as EventType,
+          link: "https://example.com/blockchain-workshop",
+          tags: ["blockchain", "web3", "cryptocurrency", "smart contracts"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "5",
+          title: "Cybersecurity Summit",
+          description: "Industry experts discuss latest cybersecurity threats, defense strategies, and career opportunities in cybersecurity.",
+          date: "2025-08-10T13:00:00Z",
+          location: "Auditorium, Carnegie Mellon University",
+          college: "Carnegie Mellon",
+          eventType: "tech-talk" as EventType,
+          link: "https://example.com/cybersecurity-summit",
+          tags: ["cybersecurity", "networking", "career"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "6",
+          title: "Data Science & Analytics Bootcamp",
+          description: "Intensive 3-day bootcamp covering Python, R, data visualization, and machine learning fundamentals for beginners.",
+          date: "2025-08-15T09:00:00Z",
+          location: "Data Science Center, Harvard University",
+          college: "Harvard",
+          eventType: "workshop" as EventType,
+          link: "https://example.com/data-science-bootcamp",
+          tags: ["data science", "python", "analytics", "bootcamp"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "7",
+          title: "FinTech Innovation Challenge",
+          description: "24-hour hackathon focused on creating innovative financial technology solutions. Sponsored by major banks and fintech companies.",
+          date: "2025-08-20T18:00:00Z",
+          location: "Business School, University of Pennsylvania",
+          college: "UPenn",
+          eventType: "hackathon" as EventType,
+          link: "https://example.com/fintech-challenge",
+          tags: ["fintech", "hackathon", "finance", "innovation"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
         }
       ];
       
