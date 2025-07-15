@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Event, EventFilters } from "@/types/event";
+import { Event, EventFilters, EventType } from "@/types/event";
 import { EventCard } from "@/components/EventCard";
 import { EventFiltersComponent } from "@/components/EventFilters";
 import { StatsCard } from "@/components/StatsCard";
@@ -47,14 +47,16 @@ export default function Home() {
   const fetchEvents = async () => {
     try {
       setLoading(true);
+      setError(null);
+      
       const params = new URLSearchParams();
-
       Object.entries(filters).forEach(([key, value]) => {
         if (value) {
           params.append(key, value);
         }
       });
 
+      // Try to fetch from API first
       const response = await fetch(`/api/events?${params}`);
       
       if (!response.ok) {
@@ -63,21 +65,61 @@ export default function Home() {
       
       const data = await response.json();
 
-      if (data.success) {
+      if (data.success && data.data && Array.isArray(data.data)) {
         setEvents(data.data);
+        console.log("✅ Successfully fetched events from API");
       } else {
-        throw new Error(data.error || "Failed to fetch events");
+        throw new Error(data.error || "Invalid API response");
       }
     } catch (err) {
-      console.error("API fetch failed, using fallback events:", err);
+      console.error("❌ API fetch failed, using fallback events:", err);
       
-      // Import and use fallback events
-      import("@/lib/fallbackEvents").then(({ FALLBACK_EVENTS }) => {
-        setEvents(FALLBACK_EVENTS);
-        setError(null); // Clear error since we have fallback data
-      }).catch(() => {
-        setError("Failed to fetch events");
-      });
+      // Use immediate fallback events
+      const fallbackEvents: Event[] = [
+        {
+          id: "1",
+          title: "Tech Innovation Summit 2025",
+          description: "Join us for the biggest tech summit of the year featuring industry leaders and cutting-edge technology demonstrations.",
+          date: "2025-07-20T10:00:00Z",
+          location: "Convention Center, New York",
+          college: "NYU",
+          eventType: "tech-talk" as EventType,
+          link: "https://example.com/tech-summit",
+          tags: ["technology", "innovation", "networking"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "2", 
+          title: "AI/ML Workshop Series",
+          description: "Hands-on workshop covering machine learning fundamentals and practical AI applications.",
+          date: "2025-07-25T14:00:00Z",
+          location: "Computer Science Building, MIT",
+          college: "MIT",
+          eventType: "workshop" as EventType,
+          link: "https://example.com/ai-workshop",
+          tags: ["AI", "machine learning", "workshop"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        },
+        {
+          id: "3",
+          title: "CodeCrush Hackathon",
+          description: "48-hour hackathon focused on building solutions for social good. Great prizes and networking opportunities!",
+          date: "2025-07-30T09:00:00Z",
+          location: "Stanford University",
+          college: "Stanford",
+          eventType: "hackathon" as EventType,
+          link: "https://example.com/hackathon",
+          tags: ["hackathon", "coding", "social impact"],
+          createdAt: "2025-07-15T00:00:00Z",
+          updatedAt: "2025-07-15T00:00:00Z"
+        }
+      ];
+      
+      setEvents(fallbackEvents);
+      setError(null); // Clear error since we have fallback data
+      console.log("✅ Using fallback events");
     } finally {
       setLoading(false);
     }
