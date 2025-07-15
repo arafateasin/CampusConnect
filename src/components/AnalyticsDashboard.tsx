@@ -13,9 +13,13 @@ export function AnalyticsDashboard() {
     try {
       const response = await fetch("/api/stats");
       const data = await response.json();
+      
+      console.log("Analytics API Response:", data);
 
-      if (data.success) {
+      if (data.success && data.data) {
         setStats(data.data);
+      } else {
+        console.error("API returned unsuccessfully:", data);
       }
     } catch (error) {
       console.error("Error fetching stats:", error);
@@ -34,7 +38,16 @@ export function AnalyticsDashboard() {
     );
   }
 
-  if (!stats) return null;
+  if (!stats) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+        <h3 className="text-red-800 font-medium">No Statistics Available</h3>
+        <p className="text-red-600 text-sm mt-2">
+          Unable to load analytics data. Please check the console for errors.
+        </p>
+      </div>
+    );
+  }
 
   const statCards = [
     {
