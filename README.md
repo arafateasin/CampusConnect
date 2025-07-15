@@ -75,7 +75,35 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🚦 Getting Started
+## � Deployment
+
+### Deploy to Vercel
+
+1. **Fork or clone this repository**
+2. **Import to Vercel**
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click "New Project"
+   - Import from GitHub: `https://github.com/arafateasin/CampusConnect.git`
+
+3. **Configure Environment Variables**
+   Add these in Vercel's environment variables section:
+   ```
+   MONGODB_URI=your-mongodb-connection-string
+   NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+   ```
+
+4. **Deploy**
+   - Click "Deploy"
+   - Your app will be live at `https://your-project.vercel.app`
+
+📋 **See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for detailed deployment instructions**
+
+## �🚦 Getting Started
 
 ### For Users
 
