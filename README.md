@@ -32,7 +32,7 @@ CampusConnect is a comprehensive Web2 platform for aggregating college events in
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/arafateasin/CampusConnect.git
    cd campusconnect
    ```
 
@@ -244,10 +244,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For questions, suggestions, or support:
 
-- **Telegram**: [@your_telegram_id]
-- **Twitter**: [@your_twitter_id]
-- **Email**: your.email@example.com
-- **Phone**: +1-XXX-XXX-XXXX
+- **Telegram**: @easinarafat010
+- **Twitter**: https://x.com/easinarafat_ss
+- **Email**: easinarafat.bn@gmail.com
+- **Phone**: +601112794136
 
 ## 🌟 Acknowledgments
 
