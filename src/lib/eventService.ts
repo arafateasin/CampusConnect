@@ -9,7 +9,8 @@ const FALLBACK_EVENTS: Event[] = [
   {
     id: "1",
     title: "Tech Innovation Summit 2025",
-    description: "Join us for the biggest tech summit of the year featuring industry leaders and cutting-edge technology demonstrations.",
+    description:
+      "Join us for the biggest tech summit of the year featuring industry leaders and cutting-edge technology demonstrations.",
     date: "2025-07-20T10:00:00Z",
     location: "Convention Center, New York",
     college: "NYU",
@@ -17,12 +18,13 @@ const FALLBACK_EVENTS: Event[] = [
     link: "https://example.com/tech-summit",
     tags: ["technology", "innovation", "networking"],
     createdAt: "2025-07-15T00:00:00Z",
-    updatedAt: "2025-07-15T00:00:00Z"
+    updatedAt: "2025-07-15T00:00:00Z",
   },
   {
-    id: "2", 
+    id: "2",
     title: "AI/ML Workshop Series",
-    description: "Hands-on workshop covering machine learning fundamentals and practical AI applications.",
+    description:
+      "Hands-on workshop covering machine learning fundamentals and practical AI applications.",
     date: "2025-07-25T14:00:00Z",
     location: "Computer Science Building, MIT",
     college: "MIT",
@@ -30,12 +32,13 @@ const FALLBACK_EVENTS: Event[] = [
     link: "https://example.com/ai-workshop",
     tags: ["AI", "machine learning", "workshop"],
     createdAt: "2025-07-15T00:00:00Z",
-    updatedAt: "2025-07-15T00:00:00Z"
+    updatedAt: "2025-07-15T00:00:00Z",
   },
   {
     id: "3",
     title: "CodeCrush Hackathon",
-    description: "48-hour hackathon focused on building solutions for social good. Great prizes and networking opportunities!",
+    description:
+      "48-hour hackathon focused on building solutions for social good. Great prizes and networking opportunities!",
     date: "2025-07-30T09:00:00Z",
     location: "Stanford University",
     college: "Stanford",
@@ -43,28 +46,30 @@ const FALLBACK_EVENTS: Event[] = [
     link: "https://example.com/hackathon",
     tags: ["hackathon", "coding", "social impact"],
     createdAt: "2025-07-15T00:00:00Z",
-    updatedAt: "2025-07-15T00:00:00Z"
-  }
+    updatedAt: "2025-07-15T00:00:00Z",
+  },
 ];
 
 export class EventService {
   private static readEventsFromFile(): Event[] {
     try {
       // Check if we're in a serverless environment (Netlify/Vercel)
-      if (typeof window !== 'undefined' || !fs.existsSync) {
+      if (typeof window !== "undefined" || !fs.existsSync) {
         console.log("🔄 Using fallback events (serverless environment)");
         return FALLBACK_EVENTS;
       }
-      
+
       // Check if data directory exists
       const dataDir = path.join(process.cwd(), "data");
       if (!fs.existsSync(dataDir)) {
-        console.log("📁 Data directory not found, creating with fallback events");
+        console.log(
+          "📁 Data directory not found, creating with fallback events"
+        );
         fs.mkdirSync(dataDir, { recursive: true });
         fs.writeFileSync(DATA_FILE, JSON.stringify(FALLBACK_EVENTS, null, 2));
         return FALLBACK_EVENTS;
       }
-      
+
       // Try to read the file
       if (fs.existsSync(DATA_FILE)) {
         const data = fs.readFileSync(DATA_FILE, "utf8");

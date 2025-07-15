@@ -39,9 +39,11 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   };
 
   const handleGoogleLogin = async () => {
-    setError("Google sign-in is temporarily disabled. Please use email/password authentication.");
+    setError(
+      "Google sign-in is temporarily disabled. Please use email/password authentication."
+    );
     return;
-    
+
     // Commented out Google sign-in functionality
     /*
     setLoading(true);
@@ -220,7 +222,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         {/* Temporarily disable Google sign-in */}
         <div className="mt-4 text-center">
           <p className="text-sm text-red-600">
-            Note: Google sign-in is temporarily disabled. Please use email/password authentication.
+            Note: Google sign-in is temporarily disabled. Please use
+            email/password authentication.
           </p>
         </div>
 

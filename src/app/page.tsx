@@ -56,15 +56,28 @@ export default function Home() {
       });
 
       const response = await fetch(`/api/events?${params}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
       const data = await response.json();
 
       if (data.success) {
         setEvents(data.data);
       } else {
-        setError(data.error || "Failed to fetch events");
+        throw new Error(data.error || "Failed to fetch events");
       }
     } catch (err) {
-      setError("Failed to fetch events");
+      console.error("API fetch failed, using fallback events:", err);
+      
+      // Import and use fallback events
+      import("@/lib/fallbackEvents").then(({ FALLBACK_EVENTS }) => {
+        setEvents(FALLBACK_EVENTS);
+        setError(null); // Clear error since we have fallback data
+      }).catch(() => {
+        setError("Failed to fetch events");
+      });
     } finally {
       setLoading(false);
     }
