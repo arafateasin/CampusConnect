@@ -39,13 +39,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   };
 
   const handleGoogleLogin = async () => {
-    setError(
-      "Google sign-in is temporarily disabled. Please use email/password authentication."
-    );
-    return;
-
-    // Commented out Google sign-in functionality
-    /*
     setLoading(true);
     setError(null);
 
@@ -58,7 +51,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     } finally {
       setLoading(false);
     }
-    */
   };
 
   const resetForm = () => {

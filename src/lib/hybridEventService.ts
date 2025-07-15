@@ -9,22 +9,27 @@ export class HybridEventService {
   static async initialize() {
     try {
       console.log("🔄 Initializing HybridEventService...");
-      
+
       // Set a timeout for MongoDB connection test
-      const timeoutPromise = new Promise((_, reject) => 
+      const timeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error("MongoDB connection timeout")), 8000)
       );
-      
+
       const mongoTest = MongoEventService.getAllEvents();
-      
+
       // Race between MongoDB test and timeout
       await Promise.race([mongoTest, timeoutPromise]);
-      
+
       this.useMongoDb = true;
       console.log("✅ MongoDB connected successfully - using MongoDB");
     } catch (error) {
-      console.log("⚠️ MongoDB connection failed - falling back to JSON storage");
-      console.log("Error details:", error instanceof Error ? error.message : error);
+      console.log(
+        "⚠️ MongoDB connection failed - falling back to JSON storage"
+      );
+      console.log(
+        "Error details:",
+        error instanceof Error ? error.message : error
+      );
       this.useMongoDb = false;
     }
   }
