@@ -4,7 +4,7 @@ import { MongoEventService } from "@/lib/mongoEventService";
 export async function POST(request: NextRequest) {
   try {
     console.log("🌱 Seeding MongoDB with sample events...");
-    
+
     const sampleEvents = [
       {
         title: "MongoDB Test Event 1",
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
         eventType: "tech-talk" as const,
         link: "https://example.com/mongodb-event-1",
         tags: ["mongodb", "database", "testing"],
-        createdBy: "system"
+        createdBy: "system",
       },
       {
         title: "MongoDB Test Event 2",
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
         eventType: "workshop" as const,
         link: "https://example.com/mongodb-event-2",
         tags: ["mongodb", "workshop", "database"],
-        createdBy: "system"
+        createdBy: "system",
       },
       {
         title: "MongoDB Test Hackathon",
@@ -37,12 +37,12 @@ export async function POST(request: NextRequest) {
         eventType: "hackathon" as const,
         link: "https://example.com/mongodb-hackathon",
         tags: ["mongodb", "hackathon", "innovation"],
-        createdBy: "system"
-      }
+        createdBy: "system",
+      },
     ];
 
     const createdEvents = [];
-    
+
     for (const eventData of sampleEvents) {
       const event = await MongoEventService.addEvent(eventData);
       createdEvents.push(event);
@@ -54,16 +54,18 @@ export async function POST(request: NextRequest) {
       message: "Sample events seeded successfully",
       data: {
         eventsCreated: createdEvents.length,
-        events: createdEvents
-      }
+        events: createdEvents,
+      },
     });
-
   } catch (error) {
     console.error("❌ Error seeding events:", error);
-    return NextResponse.json({
-      success: false,
-      error: "Failed to seed events",
-      details: error instanceof Error ? error.message : "Unknown error"
-    }, { status: 500 });
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Failed to seed events",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 }
+    );
   }
 }

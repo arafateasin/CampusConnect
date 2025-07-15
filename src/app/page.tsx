@@ -48,7 +48,7 @@ export default function Home() {
     try {
       setLoading(true);
       setError(null);
-      
+
       console.log("🔄 Starting event fetch...");
 
       const params = new URLSearchParams();
@@ -60,7 +60,7 @@ export default function Home() {
 
       // Try to fetch from API first
       const response = await fetch(`/api/events?${params}`);
-      
+
       console.log("📡 API Response Status:", response.status);
       console.log("📡 API Response OK:", response.ok);
 
